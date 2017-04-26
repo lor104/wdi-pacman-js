@@ -65,10 +65,10 @@ function displayMenu() {
   console.log('(d) Eat Dot');
   if (powerPellets >= 1) {
     console.log('(p) Eat Power Pellet');
-} console.log('(1) Eat Inky');
-  console.log('(2) Eat Blinky');
-  console.log('(3) Eat Pinky');
-  console.log('(4) Eat Clyde');
+} console.log('(1) Eat Inky (edible: ' + inky.edible + ')');
+  console.log('(2) Eat Blinky (edible: ' + blinky.edible + ')');
+  console.log('(3) Eat Pinky (edible: ' + pinky.edible + ')');
+  console.log('(4) Eat Clyde (edible: ' + clyde.edible + ')');
   console.log('(q) Quit');
 }
 
@@ -92,6 +92,11 @@ function eatGhost(ghost) {
   if (ghost.edible === false) {
     console.log('\nChomp!\nOh No!\nYou ate the ' + ghost.colour + ' ghost named '+ ghost.name + '!');
     lives -= 1; }
+  else {
+    console.log('\nChomp!\n\nYou ate ' + ghost.name + ' which is the '+ ghost.character + ' one!');
+    score += 200;
+    ghost.edible = false;
+  }
 }
 
 function ghostsEdible() {
